@@ -23,7 +23,7 @@ bot.command('start', async (ctx) => {
     try {
       const browser = await puppeteer.launch({
         headless: 'new',
-      })
+})
 
       const page = await browser.newPage()
 
@@ -58,16 +58,20 @@ bot.command('start', async (ctx) => {
       await select3?.select('2') // No
       await sleep(3000)
 
-      // Apply for a residence title
-      await page.click('input[value="169-0-1"] + label')
+      // extand for a residence title
+
+      // if apply  await page.click('input[value="169-0-1"] + label')
+      await page.click('input[value="169-0-2"] + label')
       await sleep(3000)
 
-      // Economic activity
-      await page.click('input[value="169-0-1-1"] + label')
+      // educational activity
+
+      //if econ  await page.click('input[value="169-0-1-1"] + label')
+      await page.click('input[value="169-0-2-3"] + label')
       await sleep(3000)
 
-      // EU Blue Card / Blaue Karte EU (sect. 18b para. 2)
-      await page.click('input[value="169-0-1-1-324659"] + label')
+      // 16b studies paragraph
+      await page.click('input[value="169-0-2-3-305244"] + label')
       await sleep(5000)
 
       // Click next button
@@ -92,6 +96,7 @@ bot.command('start', async (ctx) => {
       browser.close()
     } catch (error) {
       console.log(`${date}: Something went wrong.`)
+      console.log("error", error)
     }
   })
 
